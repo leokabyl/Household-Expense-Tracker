@@ -1,0 +1,126 @@
+
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Household Expense Tracker - Login</title>
+  <style>
+    body {
+      font-family: sans-serif; /* Generic sans-serif for a modern feel */
+      display: flex; /* Allow centering of form container */
+      min-height: 100vh; /* Stretch content to fill viewport height */
+      margin: 0; /* Remove default body margin */
+      background-image: url("../assets/1.jpg"); /* Optional background image */
+      background-size: cover; /* Resize image to cover the background */
+      background-position: center; /* Center the background image */
+    }
+
+    .container {
+      position: absolute; /* Position form in the center */
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%); /* Center horizontally and vertically */
+      width: 350px; /* Set a fixed width for the form */
+      padding: 30px; /* Add some padding for better spacing */
+      border-radius: 10px; /* Rounded corners for a softer look */
+      background-color: rgba(0, 0, 0, 0.8); /* Semi-transparent dark background */
+      color: white; /* White text for contrast */
+      text-align: center; /* Center text within the container */
+    }
+
+    h1 {
+      font-size: 2rem; /* Increase heading size */
+      margin-bottom: 20px;
+    }
+
+    form {
+      width: 100%; /* Form stretches to container width */
+    }
+
+    label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: bold; /* Bold text for labels */
+      color: #ddd; /* Light gray for labels */
+    }
+
+    input[type="text"], input[type="email"], input[type="password"] {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid rgba(255, 255, 255, 0.3); /* Light white border */
+      border-radius: 3px;
+      font-size: 16px; /* Increase font size for better readability */
+      background-color: rgba(0, 0, 0, 0.2); /* Slightly transparent background */
+      color: white; /* White text for input fields */
+    }
+
+    input[type="submit"] {
+      background-color: #4CAF50; /* Maintain green color */
+      color: white;
+      padding: 12px 20px; /* Slightly larger padding */
+      border: none;
+      border-radius: 5px; /* More rounded corners */
+      cursor: pointer;
+      font-weight: bold; /* Bold text for button */
+      transition: background-color 0.2s ease-in-out; /* Smooth hover effect */
+    }
+
+    input[type="submit"]:hover {
+      background-color: #3e8e41; /* Darker green on hover */
+    }
+    button {
+    padding: 10px 20px; /* Button padding from your previous code */
+    background-color: #4CAF50; /* Green color from your previous code */
+    color: white;
+    border: none;
+    border-radius: 4px; /* Button border radius from your previous code */
+    cursor: pointer;
+    margin: 0 5px; /* Add some margin between buttons */
+  }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Household Expense Tracker - Login</h1>
+  <form
+    #form="ngForm"
+    (ngSubmit)="onSubmit(form)"
+    name="f1"
+    autocomplete="off"
+  >
+      
+
+      <div>
+        <label for="email">Email Address:</label>
+        <input type="email" 
+              id="email" 
+              name="email" 
+              ngModel 
+              #email="ngModel"
+              required 
+        />
+      </div>
+
+      <div>
+        <label for="password">Password:</label>
+        <input 
+          type="password" 
+          id="password" 
+          name="password"
+          ngModel
+          #password="ngModel"
+          required
+        />
+      </div>
+    <div>
+      <button type="submit">Login</button> 
+    </div>
+    <div>
+      {{msg}}
+    </div>
+		
+
+    </form>
+  </div>
+</body>
+</html>

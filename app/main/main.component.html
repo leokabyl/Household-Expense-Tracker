@@ -1,0 +1,178 @@
+<!-- main.component.html -->
+<style>
+    body {
+font-family: Arial, sans-serif;
+margin: 0;
+background-image: url("../assets/1.jpg"); /* Optional background image */
+background-size: cover; /* Resize image to cover the background */
+background-position: center; /* Center the background image */
+}
+
+h1, h2 {
+text-align: center;
+}
+
+.input-section {
+display: flex;
+flex-direction: row;
+justify-content: space-between;
+align-items: center;
+padding: 10px;
+}
+
+.input-section label {
+font-weight: bold;
+margin-right: 10px;
+}
+
+.input-section input[type="number"], .input-section input[type="date"] {
+padding: 5px;
+margin-right: 10px;
+}
+
+.input-section button {
+padding: 5px 10px;
+background-color: #4CAF50;
+color: white;
+border: none;
+border-radius: 4px;
+cursor: pointer;
+}
+
+.logoutdel button {
+padding: 5px 10px;
+background-color: #4CAF50;
+color: white;
+border: none;
+border-radius: 4px;
+cursor: pointer;
+}
+
+.expenses-list {
+margin: 20px;
+}
+
+table {
+width: 100%;
+border-collapse: collapse;
+}
+
+th, td {
+border: 1px solid #ddd;
+padding: 8px;
+text-align: left;
+}
+
+th {
+background-color: #4CAF50;
+color: white;
+}
+
+tfoot td {
+font-weight: bold;
+}
+
+.del-data {
+padding: 5px 10px;
+background-color:red;
+color: white;
+border: none;
+border-radius: 4px;
+cursor: pointer;
+}
+
+</style>
+<div class="logoutdel">
+    <a href="/delete">
+		<button>Delete My Account</button>
+		</a>
+<a routerLink="/home">
+    <button id="log-btn" (click)="logout()">Logout</button>
+</a>  
+{{user}}
+</div>
+{{msg}}
+
+<h1>Expense Tracker App</h1>  
+
+<form
+  #form="ngForm" 
+  (ngSubmit)="addExpense(form)"
+  name="f1"
+  autocomplete="off">
+    <div class="input-section">
+        <label for="category-select">Category:</label>
+        <select id="category-select" 
+                name="category" 
+                ngModel
+                #category="ngModel"
+                [(ngModel)]="selectedCategory"
+                required
+              >
+            <option value="Food">Food</option>
+            <option value="Beverages">Beverages</option>
+            <option value="Education">Education</option>
+            <option value="Electricity">Electricity</option>
+            <option value="Rent">Rent</option>
+            <option value="Transport">Transport</option>
+            <option value="Fuel">Fuel</option>
+            <option value="Clothing">Clothing</option>
+            <option value="Relaxing">Relaxing</option>
+            <option value="Entertainment">Entertainment</option>
+            
+        </select>
+        <label for="amount-select">Amount:</label>
+        <input type="number" 
+            id="amount-select" 
+            name="amount"
+            ngModel
+            #amount="ngModel"
+            [(ngModel)]="amount"
+            required
+        />
+        <label for="date-input">Date:</label>
+        <input 
+            type="date" 
+            id="date-input" 
+            name="date" 
+            ngModel
+            #date="ngModel"
+            [(ngModel)]="date"
+            required
+        />
+        <div>
+            <button type="submit">Add</button>
+        </div>
+        
+    </div>
+</form>
+
+<div class="expenses-list">
+    <h2>Expenses List</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Category</th>
+                <th>Amount</th>
+                <th>Date</th>
+                <th>Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let expense of expenses; let i = index">
+                <td>{{ expense.category }}</td>
+                <td>{{ expense.amount }}</td>
+                <td>{{ expense.date }}</td>
+                <td><button class="del-data" (click)="deleteExpense(i, expense.amount,expense.category,expense.date)">Delete</button></td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <td>Total:</td>
+                <td>{{ totalAmount }}</td>
+                <td></td>
+                <td></td>
+            </tr>
+        </tfoot>
+    </table>
+</div>

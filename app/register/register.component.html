@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Household Expense Tracker - User Registration</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      display: flex; /* Allow centering of form container */
+      min-height: 100vh; /* Stretch content to fill viewport height */
+      margin: 0; /* Remove default body margin */
+      background-image: url("../assets/1.jpg"); /* Optional background image */
+      background-size: cover; /* Resize image to cover the background */
+      background-position: center; /* Center the background image */
+    }
+
+    .container {
+      position: absolute; /* Position form in the center */
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%); /* Center horizontally and vertically */
+      width: 400px; /* Adjust width as needed */
+      padding: 30px;
+      border-radius: 5px;
+      background-color: rgba(0, 0, 0, 0.8); /* Semi-transparent dark background */
+      color: white; /* White text for contrast */
+      text-align: center; /* Center text within the container */
+    }
+
+    h1 {
+      font-size: 2rem; /* Increase heading size */
+      margin-bottom: 20px;
+    }
+
+    form {
+      width: 100%; /* Form stretches to container width */
+    }
+
+    label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: bold; /* Bold text for labels */
+      color: #ddd; /* Light gray for labels */
+    }
+
+    input[type="text"], input[type="email"], input[type="password"], input[type="number"], input[type="tel"] {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid rgba(255, 255, 255, 0.3); /* Light white border */
+      border-radius: 3px;
+      font-size: 16px; /* Increase font size for better readability */
+      background-color: rgba(0, 0, 0, 0.2); /* Slightly transparent background */
+      color: white; /* White text for input fields */
+    }
+
+    input[type="submit"] {
+      background-color: #4CAF50; /* Maintain green color */
+      color: white;
+      padding: 12px 20px; /* Slightly larger padding */
+      border: none;
+      border-radius: 5px; /* More rounded corners */
+      cursor: pointer;
+      font-weight: bold; /* Bold text for button */
+      transition: background-color 0.2s ease-in-out; /* Smooth hover effect */
+    }
+
+    input[type="submit"]:hover {
+      background-color: #3e8e41; /* Darker green on hover */
+    }
+    .container button {
+    padding: 10px 20px; /* Button padding from your previous code */
+    background-color: #4CAF50; /* Green color from your previous code */
+    color: white;
+    border: none;
+    border-radius: 4px; /* Button border radius from your previous code */
+    cursor: pointer;
+    margin: 0 5px; /* Add some margin between buttons */
+  }
+  </style>
+</head>
+  <body>
+    <div class="container">
+      <h1>Household Expense Tracker <br/> User Registration</h1>
+      <!--<form action="insert" method="get">-->
+        <form #form="ngForm" (ngSubmit)="onSubmit(form)" name="f1" autocomplete="off">
+          <label for="name">Full Name:</label>
+          <input type="text" ngModel #name="ngModel" name="name" required>
+        
+          <!-- Email validation -->
+          <label for="email">Email Address:</label>
+          <input type="email" ngModel #email="ngModel" name="email" required email>
+        
+          <!-- Age validation -->
+          <label for="age">Age:</label>
+          <input type="number" ngModel #age="ngModel" name="age" required min="18">
+        
+          <!-- Gender validation -->
+          <label>Gender:</label>
+          <div>
+            <input type="radio" ngModel #gender="ngModel" name="gender" value="male" required> Male
+            <input type="radio" ngModel #gender="ngModel" name="gender" value="female" required> Female
+          </div>
+        
+          <!-- Phone number validation -->
+          <label for="phone">Phone Number:</label>
+          <input type="tel" ngModel #phone="ngModel" name="phone" required pattern="[0-9]{10}">
+        
+          <!-- Password validation -->
+          <label for="password">Password:</label>
+          <input type="password" ngModel #password="ngModel" name="password" required minlength="8">
+        
+          <!-- Confirm password validation -->
+          <label for="confirm_password">Confirm Password:</label>
+          <input type="password" ngModel #confirm_password="ngModel" name="confirm_password" required minlength="8" >
+        
+          <!-- Validation messages -->
+          <div *ngIf="form.submitted && name.invalid" class="error-message">Name is required.</div>
+          <div *ngIf="form.submitted && email.invalid" class="error-message">Invalid email address.</div>
+          <div *ngIf="form.submitted && age.invalid" class="error-message">Age must be at least 18.</div>
+          <div *ngIf="form.submitted && !gender.valid" class="error-message">Gender is required.</div>
+          <div *ngIf="form.submitted && phone.invalid" class="error-message">Phone number must be 10 digits.</div>
+          <div *ngIf="form.submitted && password.invalid" class="error-message">Password must be at least 8 characters.</div>
+          <div *ngIf="form.submitted && confirm_password.invalid" class="error-message">Passwords do not match.</div>
+        
+          <div>
+            <button type="submit">Register</button>
+          </div>
+        </form>
+        
+    </div>
+  </body>
+</html>
+<h2>{{msg}}</h2>

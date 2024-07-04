@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Household Expense Tracker - About Us</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      /* Removed background-color to allow class modification */
+      color: white; /* Text color set to white */
+    }
+
+    header {
+      padding: 20px;
+      text-align: center;
+      background-color: #000; /* White header background */
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+      font-size: 2em;
+      margin-bottom: 0;
+      color: white; /* White font color for h1 only */
+    }
+
+    main {
+      flex: 1; /* Main content takes up remaining space */
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 50px;
+      color:#000;
+    }
+
+    section {
+      max-width: 700px;
+      margin-bottom: 30px;
+    }
+
+    h2 {
+      font-size: 1.5em;
+      margin-bottom: 10px;
+      color:#000;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    li {
+      margin-bottom: 10px;
+    }
+
+    li:before {
+      content: "•";
+      margin-right: 10px;
+      color: #4CAF50; /* Maintain list item dot color */
+    }
+
+    footer {
+      padding: 20px;
+      text-align: center;
+      background-color: #000; /* White footer background */
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .background-change {  /* New class for background styles */
+      background-image: url('./images/background-black.jpg'); /* Initial image */
+      background-size: cover;
+      background-position: center;
+      transition: background-image 1s ease-in-out; /* Add transition for smooth effect */
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1 style="color: white;">Taking Control of Your Finances Together</h1>
+  </header>
+
+  <main class="background-change">  <section>
+      <h2>About Household Expense Tracker</h2>
+      <p>We understand that managing household expenses can be a challenge. Between groceries, bills, unexpected costs, and keeping track of individual spending habits, it's easy to feel overwhelmed. That's where Household Expense Tracker comes in.</p>
+      <p>Our mission is to empower families and individuals to take control of their finances. We believe that everyone deserves a clear picture of their spending, the ability to set realistic goals, and the tools to achieve financial peace of mind.</p>
+    </section>
+
+    <section>
+      <h2>How We Help</h2>
+      <ul>
+        <li>Track all your household expenses: From groceries and utilities to entertainment and travel, easily record your spending in various categories.</li>
+        <li>Gain valuable insights: Generate reports and visualizations to understand your spending patterns and identify areas for potential savings.</li>
+        <li>Set budgets and goals: Create realistic spending plans and track your progress towards financial objectives.</li>
+        <li>Collaborate with your household: Share access securely with your partner, roommates, or family members to manage finances collaboratively.</li>
+        <li>Stay organized: Eliminate the need for spreadsheets and paper receipts. Keep all your financial information in one secure and accessible location.</li>
+      </ul>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2024 Household Expense Tracker <br/> Kabilan & Jeeva</p>
+  </footer>
+</body>
+

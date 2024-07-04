@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Household Expense Tracker</title>
+</head>
+<style>
+    body {
+    display: flex;
+    min-height: 100vh;
+    margin: 0;
+    font-family: sans-serif; /* Generic sans-serif for a modern feel */
+    background-image: url("../assets/1.jpg"); /* Optional background image */
+    background-size: cover; /* Resize image to cover the background */
+    background-position: center; /* Center the background image */
+  }
+
+  .container {
+    display: flex;
+    flex-direction: column; /* Stack elements vertically */
+    align-items: center;
+    justify-content: center; /* Center content within the container */
+    text-align: center; /* Center text within the container */
+    padding: 50px; /* Add some padding for better spacing */
+    max-width: 500px; /* Set a maximum width for responsiveness */
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background for better text readability on image */
+    color: white; /* White text for contrast */
+    border-radius: 10px; /* Rounded corners for a softer look */
+  }
+
+  h1 {
+    font-size: 2.5rem; /* Increase heading size */
+    margin-bottom: 20px;
+  }
+
+  .description {
+    font-size: 1.2rem; /* Smaller font for descriptive text */
+    margin-bottom: 30px;
+  }
+
+  .button-container {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  button {
+    padding: 10px 20px; /* Button padding from your previous code */
+    background-color: #4CAF50; /* Green color from your previous code */
+    color: white;
+    border: none;
+    border-radius: 4px; /* Button border radius from your previous code */
+    cursor: pointer;
+    margin: 0 5px; /* Add some margin between buttons */
+  }
+
+  /* Optional hover effect for buttons from your previous code */
+  button:hover {
+    background-color: #3e8e41;
+  }
+</style>
+<body background="">
+  <div class="container">
+    <h1 id="animated-title">Household Expense Tracker</h1>
+    <p class="description">Take control of your finances. Track your income and expenses effortlessly.</p>
+    <div class="button-container">
+		<a href="/userlogin">
+		<button>Login</button>
+		</a>
+		<a href="/register">
+		<button>Register</button>
+		</a>
+	        <a href="/about">
+        <button>About Us</button>
+      </a>
+    </div>
+  </div>
+  <script>
+    // Get the title element using its ID
+    const title = document.getElementById("animated-title");
+
+    // Define animation function
+    function animateTitle() {
+      // Split the title text into an array of characters
+      const chars = title.textContent.split("");
+
+      // Initialize an empty string to store the animated text
+      let animatedText = "";
+
+      // Loop through each character with a delay
+      for (let i = 0; i < chars.length; i++) {
+        setTimeout(() => {
+          animatedText += chars[i];
+          title.textContent = animatedText;
+        }, i * 100); // Adjust delay here (100ms betwee n characters)
+      }
+    }
+
+    // Call the animation function on page load
+    window.onload = animateTitle;
+  </script>
+
+</body>
+</html>
